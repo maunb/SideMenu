@@ -18,6 +18,9 @@
 
 open class SideMenuManager : NSObject {
     
+    static var openMenu: String = "open_side_menu"
+    static var closeMenu: String = "close_side_menu"
+    
     public enum MenuPushStyle : Int {
         case defaultBehavior,
         popWhenPossible,

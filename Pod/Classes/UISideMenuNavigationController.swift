@@ -67,6 +67,9 @@ open class UISideMenuNavigationController: UINavigationController {
         if topViewController == nil {
             print("SideMenu Warning: the menu doesn't have a view controller to show! UISideMenuNavigationController needs a view controller to display just like a UINavigationController.")
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init(SideMenuManager.openMenu), object: nil)
+        
     }
     
     override open func viewWillDisappear(_ animated: Bool) {
@@ -118,6 +121,8 @@ open class UISideMenuNavigationController: UINavigationController {
         for indexPath in indexPaths {
             tableView.deselectRow(at: indexPath, animated: false)
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name.init(SideMenuManager.closeMenu), object: nil)
     }
     
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
